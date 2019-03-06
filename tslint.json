@@ -18,6 +18,7 @@
     "jsx-boolean-value": false,
     "object-literal-sort-keys": false,
     "interface-over-type-literal": false,
+    "no-empty-interface": false,
     "trailing-comma": [
       true,
       {

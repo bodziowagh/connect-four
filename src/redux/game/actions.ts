@@ -1,16 +1,38 @@
 import { Action } from "../actions";
+import { Player } from "./model";
 
-export const SET_EXAMPLE_ACTION = "SET_EXAMPLE_ACTION";
+export const PLACE_TOKEN = "END_GAME";
+export const NEXT_PLAYER = "NEXT_PLAYER";
+export const END_GAME = "END_GAME";
 
-type SetExampleActionPayload = string;
+export interface PlaceTokenActionPayload {
+    columnIndex: number;
+    player: Player;
+}
 
-export function exampleAction(payload: SetExampleActionPayload): Action<SetExampleActionPayload> {
+export function placeToken(payload: PlaceTokenActionPayload): Action<PlaceTokenActionPayload> {
     return {
-        type: SET_EXAMPLE_ACTION,
+        type: PLACE_TOKEN,
         payload
     };
 };
 
-export type ExamplePayload = SetExampleActionPayload;
+export interface NextPlayerActionPayload {}
 
-export type ExampleActionTypes = typeof SET_EXAMPLE_ACTION;
+export function nextPlayer(payload: NextPlayerActionPayload = {}): Action<NextPlayerActionPayload> {
+    return {
+        type: NEXT_PLAYER,
+        payload
+    };
+};
+
+export interface EndGameActionPayload {
+    winner: Player;
+}
+
+export function endGame(payload: EndGameActionPayload): Action<EndGameActionPayload> {
+    return {
+        type: END_GAME,
+        payload
+    };
+};
