@@ -1,5 +1,5 @@
-import { Action } from "../actions";
 import { Player } from "./model";
+import { Action } from "../actions";
 
 export const PLACE_TOKEN = "END_GAME";
 export const NEXT_PLAYER = "NEXT_PLAYER";

@@ -1,0 +1,36 @@
+$board-background-color: #4286f4;
+$active-column-color: #5296f9;
+$empty-field-color: #ffffff;
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .board {
+    .active-player {
+      text-align: center;
+    }
+
+    .fields {
+      display: flex;
+
+      .column {
+        padding: 5px 2px;
+        background-color: $board-background-color;
+
+        &:hover {
+          background-color: $active-column-color;
+        }
+
+        .field {
+          width: 50px;
+          height: 50px;
+          margin-bottom: 2px;
+          border-radius: 50%;
+          background-color: $empty-field-color
+        }
+      }
+    }
+  }
+}
