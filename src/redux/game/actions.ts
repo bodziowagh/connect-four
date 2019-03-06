@@ -1,7 +1,7 @@
 import { Player } from "./model";
 import { Action } from "../actions";
 
-export const PLACE_TOKEN = "END_GAME";
+export const PLACE_TOKEN = "PLACE_TOKEN";
 export const NEXT_PLAYER = "NEXT_PLAYER";
 export const END_GAME = "END_GAME";
 

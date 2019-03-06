@@ -1,23 +1,49 @@
 $board-background-color: #4286f4;
 $active-column-color: #5296f9;
 $empty-field-color: #ffffff;
+$text-color: black;
 
 .app {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "American Typewriter";
+  color: $text-color;
 
   .board {
-    .active-player {
+    .board-header {
       text-align: center;
+
+      .player-info-wrapper {
+        display: inline-block;
+
+        .player-info {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 0;
+
+          .player-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 5px;
+            border: 1px solid $text-color;
+          }
+        }
+      }
     }
 
     .fields {
       display: flex;
 
       .column {
+        display: flex;
+        flex-direction: column-reverse;
         padding: 5px 2px;
         background-color: $board-background-color;
+        cursor: pointer;
 
         &:hover {
           background-color: $active-column-color;
