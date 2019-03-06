@@ -3,6 +3,7 @@ export interface Board {
     width: number;
     height: number;
     emptyValue: string;
+    winningCount: number;
 }
 
 export interface Player {
@@ -13,11 +14,13 @@ export interface Player {
 export const DEFAULT_BOARD_WIDTH = 7;
 export const DEFAULT_BOARD_HEIGHT = 6;
 export const DEFAULT_EMPTY_VALUE = "";
+export const DEFAULT_WINNING_COUNT = 4;
 
 export const initBoard = (
     width: number = DEFAULT_BOARD_WIDTH,
     height: number = DEFAULT_BOARD_HEIGHT,
-    emptyValue: string = DEFAULT_EMPTY_VALUE
+    emptyValue: string = DEFAULT_EMPTY_VALUE,
+    winningCount: number = DEFAULT_WINNING_COUNT
 ): Board => {
     const fields = Array.from(new Array(width), () => new Array(height).fill(emptyValue));
 
@@ -25,7 +28,8 @@ export const initBoard = (
         fields,
         width,
         height,
-        emptyValue
+        emptyValue,
+        winningCount
     };
 }
 

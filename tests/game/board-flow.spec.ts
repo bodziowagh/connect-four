@@ -20,8 +20,7 @@ describe("Board flow", () => {
             [ "", "", "", "", "", "" ]
         ];
         const action = placeToken({
-            columnIndex: 0,
-            player
+            columnIndex: 0
         });
 
         const updatedState = gameReducer(undefined, action);
@@ -40,8 +39,7 @@ describe("Board flow", () => {
             [ "", "", "", "", "", "" ]
         ];
         const action = placeToken({
-            columnIndex: 3,
-            player
+            columnIndex: 3
         });
 
         const initialTestState = {

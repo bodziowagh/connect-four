@@ -5,7 +5,7 @@ import { GameStateShape } from "../../redux/game/reducer";
 import { Column } from "../components/Column";
 import { endGame, nextPlayer, placeToken } from "../../redux/game/actions";
 import { bindActionCreators } from "redux";
-import { getWinner } from "../services/gameValidator";
+import { getWinner } from "../utils/gameValidator";
 import { PlayerInfo } from "../components/PlayerInfo";
 
 interface StateProps {
@@ -39,7 +39,9 @@ export const Board = connect(
     mapDispatchToProps
 )(({
     game: {
+        board,
         board: { fields, emptyValue },
+        players,
         activePlayer,
         winner
     },
@@ -60,7 +62,7 @@ export const Board = connect(
         nextPlayer();
     }
 
-    const newWinner = getWinner({});
+    const newWinner = getWinner({ board, players });
 
     if (!isGameFinished && newWinner) {
         endGame({ winner: newWinner });

@@ -15,7 +15,8 @@ describe("Init board", () => {
             ],
             width: 7,
             height: 6,
-            emptyValue: ""
+            emptyValue: "",
+            winningCount: 4
         };
         const newBoard = initBoard();
 
@@ -31,9 +32,10 @@ describe("Init board", () => {
             ],
             width: 3,
             height: 10,
-            emptyValue: "0"
+            emptyValue: "0",
+            winningCount: 1
         };
-        const newBoard = initBoard(3, 10, "0");
+        const newBoard = initBoard(3, 10, "0", 1);
 
         expect(newBoard).toEqual(expectedBoard);
     });
