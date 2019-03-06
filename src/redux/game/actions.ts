@@ -7,7 +7,6 @@ export const END_GAME = "END_GAME";
 
 export interface PlaceTokenActionPayload {
     columnIndex: number;
-    player: Player;
 }
 
 export function placeToken(payload: PlaceTokenActionPayload): Action<PlaceTokenActionPayload> {

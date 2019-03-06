@@ -55,7 +55,7 @@ export function reducer(state: GameStateShape = initialState, action: Action<any
                     fields: updateFields(
                         state.board,
                         action.payload.columnIndex,
-                        action.payload.player
+                        state.activePlayer
                     )
                 }
             };

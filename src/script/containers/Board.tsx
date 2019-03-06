@@ -1,14 +1,20 @@
 import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import {StateShape} from "../../redux/store";
-import {GameStateShape} from "../../redux/game/reducer";
-import {Column} from "./Column";
+import { StateShape } from "../../redux/store";
+import { GameStateShape } from "../../redux/game/reducer";
+import { Column } from "../components/Column";
+import { placeToken } from "../../redux/game/actions";
+import { bindActionCreators, Dispatch } from "redux";
 
 interface StateProps {
     game: GameStateShape;
 }
 
-type BoardProps = StateProps;
+interface DispatchProps {
+    placeToken: typeof placeToken;
+}
+
+type BoardProps = StateProps & DispatchProps;
 
 const mapStateToProps = (state: StateShape): StateProps => {
     return {
@@ -16,14 +22,23 @@ const mapStateToProps = (state: StateShape): StateProps => {
     };
 }
 
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
+    return bindActionCreators({
+        placeToken
+    }, dispatch);
+}
+
 export const Board = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(({
     game: {
         board: { fields },
         activePlayer
-    }
+    },
+    placeToken
 }: BoardProps) => {
+
     return (
         <div className="board">
             <div className="active-player">
@@ -31,8 +46,12 @@ export const Board = connect(
             </div>
             <div className="fields">
                 {
-                    fields.map((column: string[], index: number) =>
-                        <Column key={ index } column={ column } />
+                    fields.map((column: string[], columnIndex: number) =>
+                        <Column
+                            key={ columnIndex }
+                            column={ column }
+                            onClick={ () => placeToken({ columnIndex }) }
+                        />
                     )
                 }
             </div>
